@@ -2,7 +2,7 @@ name: Create crate dist
 on:
   push:
     tags:
-      - '*'
+      - '**'
   workflow_call:
     inputs:
       tag:
