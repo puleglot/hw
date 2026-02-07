@@ -5,6 +5,16 @@ on:
       - '*'
   workflow_call:
     inputs:
+      tag:
+        description: Tag to create release on
+        default: ${{ github.ref_name }}
+        required: false
+        type: string
+      dist-filename:
+        description: The name of distribution file (e.g. foo-1.2.3-crates.tar.xz)
+        default: hedgewars-${{ github.ref_name }}-crates.tar.xz
+        required: false
+        type: string
       directories:
         description: Directories with Cargo.toml files to process
         default: rust/lib-hwengine-future
@@ -42,7 +52,7 @@ jobs:
         run: |
           pycargoebuild \
             --crate-tarball \
-            --crate-tarball-path "hedgewars-@TAG@-crates.tar.xz" \
+            --crate-tarball-path "${{ inputs.dist-filename }}" \
             --distdir /tmp/dist \
             --license-mapping license-mapping.conf \
             ${{ inputs.directories }}
