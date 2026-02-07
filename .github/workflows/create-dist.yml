@@ -1,5 +1,7 @@
 on:
-  create:
+  push:
+    branches:
+      - master
     tags:
       - '*'
   workflow_call:
