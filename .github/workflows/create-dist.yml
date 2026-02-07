@@ -41,7 +41,12 @@ jobs:
           wget https://raw.githubusercontent.com/gentoo/gentoo/refs/heads/master/metadata/license-mapping.conf
       - name: Generate cargo lock file
         shell: bash
-        run: cd ${{ inputs.directories }} && cargo generate-lockfile
+        run: |
+          for d in "${{ inputs.directories }}"; do
+            pushd $d
+            cargo generate-lockfile
+            popd
+          done
       - name: Cache fetched crates
         uses: actions/cache@v4
         with:
