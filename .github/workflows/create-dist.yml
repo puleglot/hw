@@ -1,7 +1,6 @@
+name: Create crate dist
 on:
   push:
-    branches:
-      - master
     tags:
       - '*'
   workflow_call:
