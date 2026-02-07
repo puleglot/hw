@@ -7,6 +7,8 @@ on:
       directories:
         description: Directories with Cargo.toml files to process
         default: rust/lib-hwengine-future
+        required: false
+        type: string
 
 jobs:
   create-dist:
