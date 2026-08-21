@@ -1,0 +1,15 @@
+name: Create snapshot
+on:
+  push:
+    tags:
+      - '**'
+
+jobs:
+  snapshot-tarball:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create snapshot tarball
+        uses: $/.github/actions/crate-dist
+        with:
+          directories: [ "rust/lib-hwengine-future", "rust/hedgewars-server" ]
+          dist-filename: hedgewars-${{ github.ref_name }}-crates.tar.xz
