@@ -12,6 +12,6 @@ jobs:
         uses: projg2/crate-dist-mirror-action@v2
         with:
           ssh-private-key: ${{ secrets.ssh_key }}
-          directories: [ "rust/lib-hwengine-future", "rust/hedgewars-server" ]
+          directories: rust/lib-hwengine-future rust/hedgewars-server
           upstream-repo: https://github.com/hedgewars/hw.git
           crate-dist-action: $/.github/actions/crate-dist

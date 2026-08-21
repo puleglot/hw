@@ -11,5 +11,5 @@ jobs:
       - name: Create snapshot tarball
         uses: $/.github/actions/crate-dist
         with:
-          directories: [ "rust/lib-hwengine-future", "rust/hedgewars-server" ]
+          directories: rust/lib-hwengine-future rust/hedgewars-server
           dist-filename: hedgewars-${{ github.ref_name }}-crates.tar.xz
