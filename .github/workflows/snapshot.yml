@@ -2,7 +2,7 @@ name: Create snapshot
 on:
   push:
     tags:
-      - pre_*
+      - *_pre*
 
 jobs:
   snapshot-tarball:
